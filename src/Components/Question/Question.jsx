@@ -5,8 +5,8 @@ import './Question.css'
 export const Question = () => {
     const [question, setQuestion] = useState('');
     const [aiResponse, setAiResponse] = useState('');
-    const [language, setLanguage] = useState("English");
-    const [dropdownVisible, setDropdownVisible] = useState(false);
+    // const [language, setLanguage] = useState("English");
+    // const [dropdownVisible, setDropdownVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [showExamples, setShowExamples] = useState(true);
     const [startAnimation, setStartAnimation] = useState(false);
@@ -20,10 +20,10 @@ export const Question = () => {
       }
   }, [startAnimation]);
 
-    const handleLanguageChange = (newLanguage) => {
-      setLanguage(newLanguage);
-      setDropdownVisible(false);
-    };
+    // const handleLanguageChange = (newLanguage) => {
+      // setLanguage(newLanguage);
+      // setDropdownVisible(false);
+    // };
 
     const formatResponse = (response) => {
         const sections = response.split('\n'); // Adjust based on your response format
