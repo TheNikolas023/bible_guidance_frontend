@@ -1,0 +1,43 @@
+.container.about-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    /* background-color: white; */
+    /* text-align: left;  */
+    backdrop-filter: blur(50px); 
+}
+
+.disclaimer {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+.how-it-works-section {
+    /* background-color: rgba(255, 255, 255, 0.95);  */
+    
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; /* Adjust based on your design preference */
+}
+
+.section-title {
+    text-align: center;
+    color: var(--primary-color); /* Adjust if you have a primary color variable */
+    margin-bottom: 20px;
+}
+
+.section-content {
+    text-align: left; /* Ensures the content is easy to read */
+    color: var(--text-color);
+}
+
+.section-content ol {
+    padding-left: 20px; /* Properly indents the list */
+}
+
+.section-content li {
+    margin-bottom: 10px; /* Adds space between list items */
+}

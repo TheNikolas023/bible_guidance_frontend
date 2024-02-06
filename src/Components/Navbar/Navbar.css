@@ -1,0 +1,55 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    /* background-color: #000000;  */
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif; /* or any font-family you prefer */
+}
+
+.nav-logo img {
+    height: 50px; /* Adjust as needed */
+}
+
+.nav-logo p {
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    font-weight: 500;
+}
+
+.nav-menu li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    color: var(--secondary-color); /* Cream for menu items */
+}
+
+.nav-menu a {
+    color: var(--secondary-color); /* Cream for links */
+    text-decoration: none;
+    font-size: 18px; /* Bigger text */
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--hover-color); /* Lighter Gold on hover */
+}
+
+.nav-menu hr {
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--primary-color); /* Gold */
+}
