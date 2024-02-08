@@ -39,15 +39,26 @@ export const Question = () => {
     const formatResponse = (response) => {
         const sections = response.split('\n'); // Adjust based on your response format
         return (
-            <div>
-                {sections.map((section, index) => {
-                    const [title, content] = section.includes(':') ? section.split(': ') : [section, ''];
-                    return (
-                        <p key={index}><strong>{title}</strong> {content}</p>
-                    );
-                })}
-            </div>
-        );
+          <div>
+              {sections.map((section, index) => {
+                  // Split the section at the first occurrence of ": "
+                  let splitIndex = section.indexOf(': ');
+                  let title = section;
+                  let content = '';
+      
+                  if (splitIndex !== -1) {
+                      // Extract title up to the colon and include it in the title
+                      title = section.substring(0, splitIndex + 1);
+                      // Extract content after the colon
+                      content = section.substring(splitIndex + 2);
+                  }
+      
+                  return (
+                      <p key={index}><strong>{title}</strong> {content}</p>
+                  );
+              })}
+          </div>
+      );
     };
 
     const handleQuestionSubmit = async () => {
