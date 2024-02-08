@@ -5,11 +5,13 @@ import './Question.css'
 export const Question = () => {
     const [question, setQuestion] = useState('');
     const [aiResponse, setAiResponse] = useState('');
-    // const [language, setLanguage] = useState("English");
-    // const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [language, setLanguage] = useState("English");
+    const [dropdownVisible, setDropdownVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [showExamples, setShowExamples] = useState(true);
-    const [startAnimation, setStartAnimation] = useState(false);
+    const [startAnimation, setStartAnimation] = useState(false);const [headerDescription, setHeaderDescription] = useState("Find answers to your queries with AI-generated Bible verses and explanations.");
+    const [questionLabel, setQuestionLabel] = useState("Question:");
+    
 
     useEffect(() => {
       if (startAnimation) {
@@ -20,10 +22,19 @@ export const Question = () => {
       }
   }, [startAnimation]);
 
-    // const handleLanguageChange = (newLanguage) => {
-      // setLanguage(newLanguage);
-      // setDropdownVisible(false);
-    // };
+  const handleLanguageChange = (newLanguage) => {
+    setLanguage(newLanguage);
+    setDropdownVisible(false);
+
+    if (newLanguage === "Serbian") {
+        setHeaderDescription("Pronađite odgovore na svoja pitanja uz pomoć AI-generisanih biblijskih stihova i objašnjenja.");
+        setQuestionLabel("Pitanje:");
+    } else { // Assuming the default language is English
+        setHeaderDescription("Find answers to your queries with AI-generated Bible verses and explanations.");
+        setQuestionLabel("Question:");
+    }
+};
+
 
     const formatResponse = (response) => {
         const sections = response.split('\n'); // Adjust based on your response format
@@ -50,11 +61,12 @@ export const Question = () => {
 
       try {
         const response = await fetch('https://bible-guidance.onrender.com/ask', {
+          // const response = await fetch('http://localhost:10000/ask', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ question })
+            body: JSON.stringify({ question, language })
         });
 
         if (!response.ok) {
@@ -76,7 +88,7 @@ export const Question = () => {
         <div className="search-container">
           <div className="header-container">
             <h1 className="header-title">Bible Guidance</h1>
-            <p className="header-description">Find answers to your queries with AI-generated Bible verses and explanations.</p>
+            <p className="header-description">{headerDescription}</p>
           </div>
 
           <div className="search-box">
@@ -92,7 +104,7 @@ export const Question = () => {
             </button>
           </div>
 
-          {/* <div className="language-indicator">
+          <div className="language-indicator">
             <button className="language-button" onClick={() => setDropdownVisible(!dropdownVisible)}>
               {language} ▼
             </button>
@@ -100,10 +112,9 @@ export const Question = () => {
               <div className="language-dropdown">
                 <div onClick={() => handleLanguageChange("English")}>English</div>
                 <div onClick={() => handleLanguageChange("Serbian")}>Serbian</div>
-                <div onClick={() => handleLanguageChange("French")}>French</div>
               </div>
             )}
-          </div> */}
+          </div>
           <br/>
 
           {showExamples && (
@@ -127,7 +138,7 @@ export const Question = () => {
           <div className={`response-container ${startAnimation ? 'animate' : ''}`}>
               {aiResponse && (
                   <div className="response-content">
-                      <p><strong>Question:</strong> {question}</p>
+                      <p><strong>{questionLabel}</strong> {question}</p>
                       {formatResponse(aiResponse)}
                   </div>
               )}
