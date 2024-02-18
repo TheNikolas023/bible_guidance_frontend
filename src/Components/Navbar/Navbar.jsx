@@ -11,8 +11,8 @@ export const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="nav-logo">
-        <img src={logo} alt="" />
-        {/* <p>BIBLE GUIDANCE</p> */}
+        {/* <img src={logo} alt="" /> */}
+        <p className='logo'>Bible Guidance</p>
       </div>
       <ul className="nav-menu">
         <li onClick={()=>{setMenu("home")}} ><Link style={{ textDecoration: 'none'}} to='/'>Search</Link>{menu==="home"?<hr/>:<></>}</li>

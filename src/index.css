@@ -12,12 +12,35 @@
 } */
 
 :root {
-  --primary-color: #daa520; /* Gold */
-  --secondary-color: #f5f5dc; /* Cream */
-  --tertiary-color: #cc5500; /* Burnt Orange */
-  --text-color: #ffffff; /* White */
-  --hover-color: #ffd700; /* Lighter Gold */
-}
+    --primary-color: #daa520; /* Gold */
+    --secondary-color: #f5f5dc; /* Cream */
+    --tertiary-color: #cc5500; /* Burnt Orange */
+    --text-color: #ffffff; /* White */
+    --hover-color: #ffd700; /* Lighter Gold */
+  }
+  
+  :root {
+      --primary-color: #daa520;
+      --secondary-color: #000000; 
+      --tertiary-color: #cc5500; 
+      --text-color: #000000; 
+      --hover-color: #ffd700; 
+    }
+    :root {
+        --primary-color: #0072B1; 
+        --secondary-color: #F25022; 
+        --tertiary-color: #7FBA00; 
+        --text-color: #000000; 
+        --hover-color: #005A9E;
+      }
+      /* :root {
+        --primary-color: #5D2E8C;
+        --secondary-color: #2D7DAF; 
+        --tertiary-color: #ED8936; 
+        --text-color: #000000; 
+        --hover-color: #4C2A85;
+      } */
+      
 
 
 body {
@@ -28,7 +51,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "poppins";
-  background-image: url("./Components/Assets/hero6.jpg");
+  /* background-image: url("./Components/Assets/hero6.jpg"); */
   background-size: cover;
   overflow-x: hidden;
 }
